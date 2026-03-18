@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fotos</title>
+</head>
+<body>
+
+<h1>Galería de Fotos</h1>
+
+<div th:each="foto : ${fotos}">
+    <p th:text="${foto.descripcion}"></p>
+    <img th:src="@{${foto.url}}" width="300">
+</div>
+
+</body>
+</html>
