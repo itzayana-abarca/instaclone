@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Subir Foto</title>
+</head>
+<body>
+
+<h2>Subir una foto</h2>
+
+<form action="/subir-foto" method="post" enctype="multipart/form-data">
+
+    <label>Descripción</label>
+    <input type="text" name="descripcion" required>
+    <br><br>
+
+    <label>Seleccionar imagen</label>
+    <input type="file" name="archivo" accept="image/*" onchange="previewImagen(event)" required>
+    <br><br>
+
+    <!-- Vista previa -->
+    <img id="preview" width="300" style="display:none;">
+
+    <br><br>
+
+    <button type="submit">Subir Foto</button>
+
+</form>
+
+<br>
+<a href="/fotos">Ver galería</a>
+
+<script>
+function previewImagen(event) {
+    const imagen = document.getElementById("preview");
+    imagen.src = URL.createObjectURL(event.target.files[0]);
+    imagen.style.display = "block";
+}
+</script>
+
+</body>
+</html>
