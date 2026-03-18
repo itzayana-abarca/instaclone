@@ -25,7 +25,6 @@ public class LoginController {
                         Model model) {
 
         Usuario usuario = usuarioRepository.findByEmail(email);
-
         if (usuario != null && usuario.getPassword().equals(password)) {
             model.addAttribute("mensaje", "Bienvenido " + email);
             return "home";
